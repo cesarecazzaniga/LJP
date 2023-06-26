@@ -2,6 +2,7 @@
 
 ## Introduction
 
+Basic instructions and codes to run [LJP Fast jet plugin](https://github.com/fdreyer/LundPlane) within Delphes. 
 
 ## Installation
 
@@ -58,7 +59,6 @@ Finally, you can install Delphes-Pytha8 interfece (command must be executed insi
 make HAS_PYTHIA8=true
 ```
 
-Add to your ```.bashrc``` the following lines allowing Delphes to use the Pythia8 shared libraries :
 
 ## Basic usage 
 
