@@ -35,7 +35,7 @@ make install
 Outside Pythia8 directory, you can then install Delphes (check most updated version [here](https://github.com/delphes/delphes)):
 
 ```
-git clone git://github.com/delphes/delphes.git Delphes
+git clone https://github.com/delphes/delphes.git Delphes
 cd Delphes
 ```
 
