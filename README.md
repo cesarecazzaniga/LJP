@@ -66,7 +66,9 @@ You can start testing the installation with:
 
 ```./DelphesPythia8 cards/delphes_card_CMS.tcl examples/Pythia8/configNoLHE.cmnd delphes_nolhe.root```
 
-Then, you can just use the example root macro in the repository to generate the LJP decomposition: ```root -l Example1.C```.
+Then, you can just use the example root macro in the repository to generate the LJP decomposition: ```root -l Example0.C```.
+
+## Submitting jobs
 
 
 
