@@ -51,6 +51,9 @@ Now you need to export Pythia8 path:
 
 ```
 export PYTHIA8=path_to_PYTHIA8_installation_dir
+export PYTHIA8DATA=$PYTHIA8/share/Pythia8/xmldoc/
+export PYTHONPATH=$PYTHIA8/lib:$PYTHONPATH
+export LD_LIBRARY_PATH=$PYTHIA8/lib:$LD_LIBRARY_PATH
 ```
 
 Finally, you can install Delphes-Pytha8 interfece (command must be executed inside Delphes directory):
