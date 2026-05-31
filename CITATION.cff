@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: LJP
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: 'Cesare '
+    family-names: Cazzaniga
+    email: cesare.cazzaniga@cern.ch
+    affiliation: DESY
+    orcid: 'https://orcid.org/0000-0003-0001-7657'
+repository-code: 'https://github.com/cesarecazzaniga/LJP/tree/main'
+abstract: >-
+  Code to produce the Lund jet plane using the LundPlugin
+  and Delphes
+keywords:
+  - Jets substructure
+  - Lund Jet Plane
+  - Delphes
+version: '1.0'
+date-released: '2026-05-31'
