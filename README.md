@@ -95,6 +95,11 @@ The code itself can be cited as
          }
 ```
 
+## Support
 
+If you have any questions, please
+write us at 
+
+[cesare.cazzaniga@cern.ch](cesare.cazzaniga@cern.ch)
 
 
