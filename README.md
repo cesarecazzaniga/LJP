@@ -2,7 +2,8 @@
 
 ## Introduction
 
-Basic instructions and codes to run [LJP Fast jet plugin](https://github.com/fdreyer/LundPlane) within Delphes. 
+Basic instructions and codes to run [LJP Fast jet plugin](https://github.com/fdreyer/LundPlane) within Delphes.
+Please cite this package if you use it for your work as indicated below.
 
 ## Installation
 
@@ -78,6 +79,22 @@ The macro takes the following arguments:
   * R, ptmin, ptmax: anti-kt jet radius, minumum pt, maximum pt
 
 An example of how to run the plotting scripts is provided in ```run_plotting_ljp.sh```.
+
+## Citations
+
+The code itself can be cited as
+
+```
+ @software{Cazzaniga_LJP_Delphes,
+            author = {Cazzaniga, Cesare},
+            month = may,
+            title = {SVJGamma models production},
+            url = {https://github.com/cesarecazzaniga/LJP},
+            version = {1},
+            year = {2026}
+         }
+```
+
 
 
 
