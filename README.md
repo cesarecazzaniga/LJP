@@ -41,11 +41,11 @@ cd Delphes
 
 To run the FastJet plugin for the LJP decomposition using ROOT macros and Delphes libraries, you need to follow these steps:
 
-  1. Create a directory inside ```Delphes/external/fastjet/contribs/``` called ```LundPlugin```.
-  2. Copy inside the directory ```LundPlugin``` the following files from the FastJet [LJP plugin](https://github.com/fdreyer/LundPlane): LundGenerator.cc, LundGenerator.hh, LundJSON.hh, LundWithSecondary.cc, LundWithSecondary.hh, SecondaryLund.cc, SecondaryLund.hh
-  3. You need to use [this Makefile](https://github.com/cesarecazzaniga/LJP/blob/main/Makefile) (substitute with Delphes default one)  
+  1. Clone this repo outside Delphes
+  2. Create a directory inside ```Delphes/external/fastjet/contribs/``` called ```LundPlugin```.
+  3. Copy inside the directory ```LundPlugin``` the following files from the FastJet [LJP plugin](https://github.com/fdreyer/LundPlane): LundGenerator.cc, LundGenerator.hh, LundJSON.hh, LundWithSecondary.cc, LundWithSecondary.hh, SecondaryLund.cc, SecondaryLund.hh
+  4. You need to use [this Makefile](https://github.com/cesarecazzaniga/LJP/blob/main/Makefile) (substitute with Delphes default one)  
 
-After these steps, you can just run: ```make```.
 
 Now you need to export Pythia8 path:
 
@@ -62,16 +62,22 @@ Finally, you can install Delphes-Pytha8 interfece (command must be executed insi
 make HAS_PYTHIA8=true
 ```
 
+Finally, copy the scripts: ```process_to_json.C```, ```run_plotting_ljp.sh```, ```run_produce_ljp.sh```, plotting inside the delphes directory. 
+
 
 ## Basic usage 
 
-You can start testing the installation with:
+After running Delphes with Pythia8, or converted HEPMC to ROOT format via Delphes, you can use the script ```process_to_json.C``` to read the delphes output and produce the LJP.
+An example to run the code is provided in: ```run_produce_ljp.sh```.
 
-```./DelphesPythia8 cards/delphes_card_CMS.tcl examples/Pythia8/configNoLHE.cmnd delphes_nolhe.root```
+The macro takes the following arguments:
 
-Then, you can just use the example root macro in the repository to generate the LJP decomposition: ```root -l Example0.C```.
+  * fileName: input file name (Delphes ROOT file)
+  * Output_path: output json file
+  * stage: particles to use to build the LJP. Can be: 'darkHadron', 'smHadron', 'visible'
+  * R, ptmin, ptmax: anti-kt jet radius, minumum pt, maximum pt
 
-## Submitting jobs
+An example of how to run the plotting scripts is provided in ```run_plotting_ljp.sh```.
 
 
 
