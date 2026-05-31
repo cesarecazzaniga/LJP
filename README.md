@@ -88,7 +88,7 @@ The code itself can be cited as
  @software{Cazzaniga_LJP_Delphes,
             author = {Cazzaniga, Cesare},
             month = may,
-            title = {SVJGamma models production},
+            title = {LJP},
             url = {https://github.com/cesarecazzaniga/LJP},
             version = {1},
             year = {2026}
