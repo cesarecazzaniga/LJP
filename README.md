@@ -45,7 +45,7 @@ To run the FastJet plugin for the LJP decomposition using ROOT macros and Delphe
   1. Clone this repo outside Delphes
   2. Create a directory inside ```Delphes/external/fastjet/contribs/``` called ```LundPlugin```.
   3. Copy inside the directory ```LundPlugin``` the following files from the FastJet [LJP plugin](https://github.com/fdreyer/LundPlane): LundGenerator.cc, LundGenerator.hh, LundJSON.hh, LundWithSecondary.cc, LundWithSecondary.hh, SecondaryLund.cc, SecondaryLund.hh
-  4. You need to use [this Makefile](https://github.com/cesarecazzaniga/LJP/blob/main/Makefile) (substitute with Delphes default one)  
+  4. You need to use [this Makefile](https://github.com/cesarecazzaniga/LJP/blob/main/Makefile) (substitute with Delphes default one, working with version Delphes-3.5.1)  
 
 
 Now you need to export Pythia8 path:
