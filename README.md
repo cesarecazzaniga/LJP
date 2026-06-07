@@ -63,7 +63,7 @@ Finally, you can install Delphes-Pytha8 interfece (command must be executed insi
 make HAS_PYTHIA8=true
 ```
 
-Finally, copy the scripts: ```process_to_json.C```, ```run_plotting_ljp.sh```, ```run_produce_ljp.sh```, plotting inside the delphes directory. 
+Finally, copy the scripts: ```process_to_json.C```, ```run_plotting_ljp.sh```, ```run_produce_ljp.sh```, ```plotting``` inside the delphes directory. 
 
 
 ## Basic usage 
