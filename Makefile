@@ -13,13 +13,13 @@ ROOT_MAJOR := $(shell $(RC) --version | cut -d'.' -f1)
 SrcSuf = cc
 PcmSuf = _rdict.pcm
 
-CXXFLAGS += $(ROOTCFLAGS) -D_FILE_OFFSET_BITS=64 -DDROP_CGAL -I. -Iexternal -Iexternal/tcl
+CXXFLAGS += $(ROOTCFLAGS) -Wno-write-strings -D_FILE_OFFSET_BITS=64 -DDROP_CGAL -I. -Iexternal -Iexternal/tcl
 DELPHES_LIBS = $(shell $(RC) --libs) -lEG
 DISPLAY_LIBS = $(shell $(RC) --evelibs) -lGuiHtml
 
 ifneq ($(CMSSW_FWLITE_INCLUDE_PATH),)
 HAS_CMSSW = true
-CXXFLAGS += -std=c++17 -I$(subst :, -I,$(CMSSW_FWLITE_INCLUDE_PATH))
+CXXFLAGS += -std=c++0x -I$(subst :, -I,$(CMSSW_FWLITE_INCLUDE_PATH))
 OPT_LIBS += -L$(subst include,lib,$(subst :, -L,$(CMSSW_FWLITE_INCLUDE_PATH)))
 ifneq ($(CMSSW_RELEASE_BASE),)
 CXXFLAGS += -I$(CMSSW_RELEASE_BASE)/src
@@ -1291,7 +1291,6 @@ tmp/external/fastjet/ClosestPair2D.$(ObjSuf): \
 	external/fastjet/internal/ClosestPair2D.hh
 tmp/external/fastjet/ClusterSequence.$(ObjSuf): \
 	external/fastjet/ClusterSequence.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/Error.hh \
 	external/fastjet/PseudoJet.hh \
 	external/fastjet/ClusterSequence.hh \
@@ -1341,7 +1340,6 @@ tmp/external/fastjet/ClusterSequence_CP2DChan.$(ObjSuf): \
 	external/fastjet/internal/ClosestPair2D.hh
 tmp/external/fastjet/ClusterSequence_Delaunay.$(ObjSuf): \
 	external/fastjet/ClusterSequence_Delaunay.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/Error.hh \
 	external/fastjet/PseudoJet.hh \
 	external/fastjet/ClusterSequence.hh \
@@ -1366,19 +1364,15 @@ tmp/external/fastjet/CompositeJetStructure.$(ObjSuf): \
 	external/fastjet/CompositeJetStructure.hh
 tmp/external/fastjet/Dnn2piCylinder.$(ObjSuf): \
 	external/fastjet/Dnn2piCylinder.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/internal/Dnn2piCylinder.hh
 tmp/external/fastjet/Dnn3piCylinder.$(ObjSuf): \
 	external/fastjet/Dnn3piCylinder.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/internal/Dnn3piCylinder.hh
 tmp/external/fastjet/Dnn4piCylinder.$(ObjSuf): \
 	external/fastjet/Dnn4piCylinder.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/internal/Dnn4piCylinder.hh
 tmp/external/fastjet/DnnPlane.$(ObjSuf): \
 	external/fastjet/DnnPlane.$(SrcSuf) \
-	external/fastjet/config.h \
 	external/fastjet/internal/DnnPlane.hh
 tmp/external/fastjet/Error.$(ObjSuf): \
 	external/fastjet/Error.$(SrcSuf) \
@@ -1464,6 +1458,12 @@ tmp/external/fastjet/contribs/Nsubjettiness/TauComponents.$(ObjSuf): \
 	external/fastjet/contribs/Nsubjettiness/TauComponents.$(SrcSuf)
 tmp/external/fastjet/contribs/Nsubjettiness/XConePlugin.$(ObjSuf): \
 	external/fastjet/contribs/Nsubjettiness/XConePlugin.$(SrcSuf)
+tmp/external/fastjet/contribs/LundPlugin/LundGenerator.$(ObjSuf): \
+	external/fastjet/contribs/LundPlugin/LundGenerator.$(SrcSuf)
+tmp/external/fastjet/contribs/LundPlugin/LundWithSecondary.$(ObjSuf): \
+	external/fastjet/contribs/LundPlugin/LundWithSecondary.$(SrcSuf)
+tmp/external/fastjet/contribs/LundPlugin/SecondaryLund.$(ObjSuf): \
+	external/fastjet/contribs/LundPlugin/SecondaryLund.$(SrcSuf)
 tmp/external/fastjet/contribs/RecursiveTools/BottomUpSoftDrop.$(ObjSuf): \
 	external/fastjet/contribs/RecursiveTools/BottomUpSoftDrop.$(SrcSuf) \
 	external/fastjet/ClusterSequenceActiveAreaExplicitGhosts.hh \
@@ -1646,6 +1646,10 @@ tmp/modules/FastJetFinder.$(ObjSuf): \
 	external/fastjet/contribs/Nsubjettiness/Nsubjettiness.hh \
 	external/fastjet/contribs/ValenciaPlugin/ValenciaPlugin.hh \
 	external/fastjet/contribs/RecursiveTools/SoftDrop.hh \
+	external/fastjet/contribs/LundPlugin/LundGenerator.hh \
+	external/fastjet/contribs/LundPlugin/LundJSON.hh \
+	external/fastjet/contribs/LundPlugin/LundWithSecondary.hh \
+	external/fastjet/contribs//LundPlugin/SecondaryLund.hh \
 	external/fastjet/tools/Filter.hh \
 	external/fastjet/tools/Pruner.hh
 tmp/modules/FastJetGridMedianEstimator.$(ObjSuf): \
@@ -1742,6 +1746,9 @@ FASTJET_OBJ +=  \
 	tmp/external/fastjet/contribs/RecursiveTools/SoftDrop.$(ObjSuf) \
 	tmp/external/fastjet/contribs/SoftKiller/SoftKiller.$(ObjSuf) \
 	tmp/external/fastjet/contribs/ValenciaPlugin/ValenciaPlugin.$(ObjSuf) \
+	tmp/external/fastjet/contribs/LundPlugin/LundGenerator.$(ObjSuf) \
+	tmp/external/fastjet/contribs/LundPlugin/LundWithSecondary.$(ObjSuf) \
+	tmp/external/fastjet/contribs/LundPlugin/SecondaryLund.$(ObjSuf) \
 	tmp/external/fastjet/plugins/ATLASCone/ATLASConePlugin.$(ObjSuf) \
 	tmp/external/fastjet/plugins/ATLASCone/Jet.$(ObjSuf) \
 	tmp/external/fastjet/plugins/ATLASCone/JetConeFinderTool.$(ObjSuf) \
@@ -2006,7 +2013,6 @@ modules/EnergyScale.h: \
 	classes/DelphesModule.h
 	@touch $@
 external/fastjet/internal/Dnn2piCylinder.hh: \
-	external/fastjet/config.h \
 	external/fastjet/internal/DynamicNearestNeighbours.hh \
 	external/fastjet/internal/DnnPlane.hh \
 	external/fastjet/internal/numconsts.hh
@@ -2058,7 +2064,6 @@ external/fastjet/tools/GridMedianBackgroundEstimator.hh: \
 	external/fastjet/RectangularGrid.hh
 	@touch $@
 external/fastjet/internal/DnnPlane.hh: \
-	external/fastjet/config.h \
 	external/fastjet/internal/Triangulation.hh \
 	external/fastjet/internal/DynamicNearestNeighbours.hh
 	@touch $@
@@ -2175,7 +2180,6 @@ external/fastjet/GhostedAreaSpec.hh: \
 	external/fastjet/SharedPtr.hh
 	@touch $@
 external/fastjet/internal/Dnn4piCylinder.hh: \
-	external/fastjet/config.h \
 	external/fastjet/internal/DynamicNearestNeighbours.hh \
 	external/fastjet/internal/DnnPlane.hh \
 	external/fastjet/internal/numconsts.hh
@@ -2342,7 +2346,6 @@ external/fastjet/internal/LazyTiling9SeparateGhosts.hh: \
 	external/fastjet/config.h
 	@touch $@
 external/fastjet/internal/Dnn3piCylinder.hh: \
-	external/fastjet/config.h \
 	external/fastjet/internal/DynamicNearestNeighbours.hh \
 	external/fastjet/internal/DnnPlane.hh \
 	external/fastjet/internal/numconsts.hh
@@ -2376,7 +2379,6 @@ external/fastjet/LimitedWarning.hh: \
 	external/fastjet/internal/thread_safety_helpers.hh
 	@touch $@
 external/fastjet/config.h: \
-	external/fastjet/config_auto.h \
 	external/fastjet/config_win.h
 	@touch $@
 modules/CscClusterId.h: \
@@ -2546,4 +2548,3 @@ $(EXECUTABLE): %$(ExeSuf): $(DELPHES_DICT_OBJ) $(FASTJET_DICT_OBJ) $(DELPHES_OBJ
 	@$(LD) $(LDFLAGS) $^ $(DELPHES_LIBS) $(OutPutOpt)$@
 
 ###
-
